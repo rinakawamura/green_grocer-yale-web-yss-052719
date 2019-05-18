@@ -38,14 +38,6 @@ def apply_clearance(cart)
   return cart
 end
 
-cart = [
-  {"AVOCADO" => {:price => 3.0, :clearance => true }},
-  {"AVOCADO" => {:price => 3.0, :clearance => true }},
-  {"KALE"    => {:price => 3.0, :clearance => false}}
-]
-
-coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0}]
-
 def checkout(cart, coupons)
   consolidated = consolidate_cart(cart)
   after_coupons = apply_coupons(consolidated, coupons)
@@ -60,5 +52,3 @@ def checkout(cart, coupons)
   end
   return total
 end
-
-checkout(cart, coupons)
