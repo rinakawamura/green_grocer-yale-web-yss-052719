@@ -47,9 +47,9 @@ cart = [
 coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0}]
 
 def checkout(cart, coupons)
-  consolidated = consolidate_cart(cart)
-  after_coupons = apply_coupons(consolidated, coupons)
-  after_clearance = apply_clearance(after_coupons)
+  consolidated = consolidate_cart(cart.clone)
+  after_coupons = apply_coupons(consolidated.clone, coupons)
+  after_clearance = apply_clearance(after_coupons.clone)
   total = 0
   after_clearance.each_value do |value|
     price = value[:price] * value[:count]
